@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: ch.qos.logback/logback-classic:1.4.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.4.4/logback-classic-1.4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
