@@ -54,7 +54,7 @@
                      (let [req (:body-params params) a (:a req) b (:b req)]
                        (if (or (not (number? a)) (not (number? b)))
                          (response/bad-request {:res "Ambos parametros deben de ser numeros"})
-                         (response/ok {:res (* a b)}))))}]
+                         (response/ok {:res (+ a b)}))))}]
    ["/log-in" {:post (fn [params]
                        (let [req (:body-params params)]
                          (if (in? users req)
@@ -63,4 +63,10 @@
    ["/integrantes-de-equipo" {:get (fn [_]
                                      (response/ok {:team team}))
                               :post (fn [_]
-                                      (response/conflict {:respuesta "Respuesta de Conflict (409)"}))}]])
+                                      (response/conflict {:respuesta "Respuesta de Conflict (409)"}))}]
+   ["/put" {:put (fn [_]
+                   (response/ok {:res "Put correcto :)"}))
+            :get (fn [_]
+                   (response/conflict {:respuesta "Respuesta de Conflict (409)"}))
+            :post (fn [_]
+                    (response/conflict {:respuesta "Respuesta de Conflict (409)"}))}]])
