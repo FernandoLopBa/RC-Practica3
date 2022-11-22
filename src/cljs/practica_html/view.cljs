@@ -2,6 +2,7 @@
   (:require [practica-html.events :refer [http-request]]
             [practica-html.integrantes :refer [integrantes]]
             [practica-html.log-in :refer [log-in-view]]
+            [practica-html.put :refer [put-view]]
             [practica-html.suma :refer [suma-view]]
             [reagent.core :as r]))
 
@@ -82,4 +83,5 @@
       [button-custom estado]
       [suma-view]
       [log-in-view]
-      [integrantes]]])) ;; <- Manera de usar un componente propio.
+      [integrantes]
+      [put-view]]])) ;; <- Manera de usar un componente propio.
