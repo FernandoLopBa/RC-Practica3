@@ -11,10 +11,27 @@
 (defn home-routes []
   [""
    {:middleware [middleware/wrap-csrf
-                 middleware/wrap-formats
-                 ]}
+                 middleware/wrap-formats]}
 
    ["/" {:get home-page}]
+
+   ["/calculadora" {:post (fn [params]
+                            (let [req (:body-params params) valor1 (:valor1 req) valor2 (:valor2 req) op (:op req)]
+                              (if (or (not (number? valor1)) (not (number? valor2)))
+                                (response/bad-request {:res "Ambos parametros deben de ser numeros"})
+                                (response/ok {:res (case op "+" (+ valor1 valor2)
+                                                         "-" (- valor1 valor2)
+                                                         "*" (* valor1 valor2)
+                                                         "/" (/ valor1 valor2))}))))}]
+   ["/patch" {:patch (fn [_]
+                       (response/ok {:res "Patch correcto :)"}))
+              :put (fn [_]
+                     (response/conflict {:res "Respuesta de Conflict (409)"}))
+              :get (fn [_]
+                     (response/conflict {:respuesta "Respuesta de Conflict (409)"}))
+              :post (fn [_]
+                      (response/conflict {:respuesta "Respuesta de Conflict (409)"}))}]
+
    ["/mi-end-point" {:get  (fn [_]
                              (response/conflict {:respuesta "Respuesta de Conflict (409)"}))
                      :post (fn [_]

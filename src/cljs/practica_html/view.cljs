@@ -1,7 +1,8 @@
 (ns practica-html.view
-  (:require
-   [practica-html.events :refer [http-request]]
-   [reagent.core :as r]))
+  (:require [practica-html.calculadora :refer [calculadora-view]]
+            [practica-html.events :refer [http-request]]
+            [practica-html.patch :refer [patch-view]]
+            [reagent.core :as r]))
 
 (defn button-custom [estado]
   (let [on-success-fn (fn [http-response]
@@ -14,8 +15,8 @@
                         ;; Función ejecutada cuando hay un código de error
                         (println "Error D:")
                         (swap! estado
-                                 (fn [estado-previo]
-                                   (assoc-in estado-previo [:ejemplo-1 :failure] http-response))))]
+                               (fn [estado-previo]
+                                 (assoc-in estado-previo [:ejemplo-1 :failure] http-response))))]
     [:div
      [:button {:on-click (fn []
                            (swap! estado (fn [estado-previo]
@@ -77,4 +78,6 @@
           "Valor del input: "]
          (str  (get-in @estado [:ejemplo-0 :valor]))]]]
 
-      [button-custom estado]]])) ;; <- Manera de usar un componente propio.
+      [button-custom estado]
+      [calculadora-view]
+      [patch-view]]])) ;; <- Manera de usar un componente propio.
