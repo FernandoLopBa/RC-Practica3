@@ -1,6 +1,8 @@
 (ns practica-html.view
-  (:require [practica-html.calculadora :refer [calculadora-view]]
-            [practica-html.events :refer [http-request]]
+  (:require [practica-html.events :refer [http-request]]
+            [practica-html.integrantes :refer [integrantes]]
+            [practica-html.log-in :refer [log-in-view]]
+            [practica-html.suma :refer [suma-view]]
             [practica-html.patch :refer [patch-view]]
             [reagent.core :as r]))
 
@@ -81,3 +83,6 @@
       [button-custom estado]
       [calculadora-view]
       [patch-view]]])) ;; <- Manera de usar un componente propio.
+      [suma-view]
+      [log-in-view]
+      [integrantes]]])) ;; <- Manera de usar un componente propio.
