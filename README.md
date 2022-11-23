@@ -51,7 +51,7 @@ La lista de end-points a implementar es la siguiente:
    segura de acuerdo a criterios que investigues por Internet (se debe anexar la fuente en 
    un comentario en el end-point), y en caso de no serlo, debe emitir alguna recomendación 
    para logar que lo sea.
-6. End-point `"update-value"` que define un mapa constante en el back-end (por ejemplo, 
+6. End-point `"/update-value"` que define un mapa constante en el back-end (por ejemplo, 
    `{:a 1, :b 2}`), recibe una llave existente en el mapa junto con un valor nuevo y 
    devuelve un nuevo mapa con el valor actualizado.
 7. End-point `"/integrantes-de-equipo"` que devuelve una lista que contiene a los integrantes
