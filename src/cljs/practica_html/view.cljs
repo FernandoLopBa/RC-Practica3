@@ -2,8 +2,9 @@
   (:require [practica-html.events :refer [http-request]]
             [practica-html.integrantes :refer [integrantes]]
             [practica-html.log-in :refer [log-in-view]]
-            [practica-html.put :refer [put-view]]
             [practica-html.suma :refer [suma-view]]
+            [practica-html.put :refer [put-view]]
+            [practica-html.delete :refer [delete-view]]
             [practica-html.patch :refer [patch-view]]
             [reagent.core :as r]))
 
@@ -83,7 +84,8 @@
 
       [button-custom estado]
       [calculadora-view]
-      [patch-view]]])) ;; <- Manera de usar un componente propio.
+      [patch-view] ;; <- Manera de usar un componente propio.
+      [delete-view] ;; <- Manera de usar un componente propio.
       [suma-view]
       [log-in-view]
       [integrantes]
